@@ -7,12 +7,56 @@
     <body>
         <script>
             function computerPlay(){
-              let computerSelection= Math.floor((Math.random()*3)+1);
-              if computerSelection == "1" {
-                    
-              }
-              //console.log(computerSelection);
+                let computerSelection= Math.floor((Math.random()*3)+1);
+                let computerChoice= "";
+                    if (computerSelection == "1") {
+                    computerChoice= "rock"
+                    }
+                    if (computerSelection== "2") {
+                    computerChoice= "paper"
+                    }
+                    if (computerSelection== "3") {
+                    computerChoice= "scissors"
+                    }
+                    return computerChoice;
+                }
+            function personPlay(){
+                let playerSelection= prompt("Enter 'Rock', 'Paper', or 'Scissors'", "").toLowerCase()
+                return playerSelection;
             }
+            const playerSelection= personPlay()
+            const computerSelection= computerPlay()
+
+            function playRound(playerSelection, computerSelection){
+            if (playerSelection == "rock" && computerSelection == "rock") {
+                alert("Tie, "+playerSelection+" equals "+computerSelection)
+            }
+            if (playerSelection == "rock" && computerSelection == "paper") {
+                alert("Computer Wins! "+computerSelection+" beats "+playerSelection)
+            }
+            if (playerSelection == "rock" && computerSelection == "scissors") {
+                alert("You win! "+playerSelection+" beats "+computerSelection)
+            }
+            if (playerSelection == "paper" && computerSelection == "rock") {
+                alert("You win! "+playerSelection+" beats "+computerSelection)
+            }
+            if (playerSelection == "paper" && computerSelection == "paper") {
+                alert("Tie, "+playerSelection+" equals "+computerSelection)
+            }
+            if (playerSelection == "paper" && computerSelection == "scissors") {
+                alert("Computer Wins! "+computerSelection+" beats "+playerSelection)
+            }
+            if (playerSelection == "scissors" && computerSelection == "rock") {
+                alert("Computer Wins! "+computerSelection+" beats "+playerSelection)
+            }
+            if (playerSelection == "scissors" && computerSelection == "paper") {
+                alert("You win! "+playerSelection+" beats "+computerSelection)
+            }
+            if (playerSelection == "scissors" && computerSelection == "scissors") {
+                alert("Tie, "+playerSelection+" equals "+computerSelection)
+            }
+            }
+                
         </script>
     </body>
 </html>
