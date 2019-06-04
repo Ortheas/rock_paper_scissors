@@ -1,12 +1,4 @@
-<!DOCTYPE html>
-<html>
-    <head>
-        <title>Rock Paper Scissors</title>
-        <link rel="stylesheet" href="">
-    </head>
-    <body>
-        <script>
-        function computerPlay(){
+function computerPlay(){
                 let computerNum= Math.floor((Math.random()*3)+1);
                 let computerChoice= "";
                     if (computerNum == "1") {
@@ -24,19 +16,15 @@
                 return prompt("Enter 'Rock', 'Paper', or 'Scissors'", "").toLowerCase()
             }
 
-            function game(){
+            function game(playerSelection, computerChoice){
 			
 			let playerScore = "0";
 			let computerScore = "0";
-			let tie = "0";
-			var round;
-            for (round = 0; round <5; round++){
-			let playerSelection = personPlay()
-			let computerSelection = computerPlay()
+			let round = 0;
+            for (round = 0; round <5; round++)
 
             if (playerSelection == "rock" && computerSelection == "rock") {
-                alert("Tie, your "+playerSelection.toUpperCase()+" equals the computers "+computerSelection.toUpperCase()) 
-				tie++
+                alert("Tie, your "+playerSelection.toUpperCase()+" equals the computers "+computerSelection.toUpperCase())
             }
             if (playerSelection == "rock" && computerSelection == "paper") {
                 alert("Computer Wins! The computers "+computerSelection.toUpperCase()+" beats your "+playerSelection.toUpperCase())
@@ -52,31 +40,27 @@
             }
             if (playerSelection == "paper" && computerSelection == "paper") {
                 alert("Tie, your "+playerSelection.toUpperCase()+" equals the computers "+computerSelection.toUpperCase())
-				tie++
             }
             if (playerSelection == "paper" && computerSelection == "scissors") {
                 alert("Computer Wins! The computers "+computerSelection.toUpperCase()+" beats your "+playerSelection.toUpperCase())
                 computerScore++
             }
             if (playerSelection == "scissors" && computerSelection == "rock") {
-                alert("Computer Wins! The computers "+computerSelection.toUpperCase()+" beats your "+playerSelection.toUpperCase())
+                alert("Computer Wins! The computers "+computerSelection.toUpperCase()+" beats your "+playerSelection)
                 computerScore++
             }
             if (playerSelection == "scissors" && computerSelection == "paper") {
-                alert("You win! Your "+playerSelection.toUpperCase()+" beats the computers "+computerSelection.toUpperCase())
+                alert("You win! Your "+playerSelection.toUpperCase()+" beats the computers "+computerSelection)
                 playerScore++
             }
             if (playerSelection == "scissors" && computerSelection == "scissors") {
-                alert("Tie, your "+playerSelection.toUpperCase()+" equals the computers "+computerSelection.toUpperCase())
-				tie++
+                alert("Tie, your "+playerSelection.toUpperCase()+" equals the computers "+computerSelection)
             }
-            }
-            return ("End of game! Your score is " + playerScore + ", and the computer has " + computerScore + ", and you tied " + tie + " times.");
-        }
-			                
-console.log (game())
-                
-        </script>
-    </body>
-</html>
 
+            return ("End of game! Your score is " + playerScore + ", and the computer has " + computerScore + ".");
+
+            }
+			const playerSelection = personPlay()
+			const computerSelection = computerPlay()
+                
+console.log (game(playerSelection, computerSelection))
